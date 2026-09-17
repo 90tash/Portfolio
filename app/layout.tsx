@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ashish Kumar Patra · 90tash | Backend & Systems Engineer",
+  title: "ashish • portfolio",
   description:
     "Portfolio of Ashish Kumar Patra (90tash) — Backend & Systems Developer, B.Tech CSE at CVRGU. Crafting distributed architectures with Java Spring Boot, FastAPI, and reactive web applications.",
   icons: {
