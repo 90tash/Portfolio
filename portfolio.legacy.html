@@ -1,0 +1,2489 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#000000" />
+    <title>Ash • Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link
+      rel="alternate icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10 2L18 7.5L10 13L2 7.5L10 2Z' fill='%23FF4D4D'/%3E%3Cpath d='M2 7.5L10 13V19L2 13.5V7.5Z' fill='%23D32F2F'/%3E%3Cpath d='M10 13L18 7.5V13.5L10 19V13Z' fill='%239A0007'/%3E%3C/svg%3E"
+    />
+    <meta
+      name="description"
+      content="Portfolio of Ashish Kumar Patra — B.Tech CSE student at C.V. Raman Global University, building full-stack applications with Java Spring Boot, Python FastAPI, and React."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+      :root {
+        --font-sans:
+          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        --font-mono:
+          "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+          Consolas, monospace;
+        --ink: #000000;
+        --surface: #050505;
+        --surface-solid: #0a0a0a;
+        --surface-2: #111111;
+        --surface-card: #080808;
+        --border: rgba(255, 255, 255, 0.08);
+        --border-highlight: rgba(227, 163, 61, 0.4);
+        --border-teal: rgba(79, 179, 164, 0.4);
+        --text: #eceae4;
+        --muted: #8e95a5;
+        --amber: #e3a33d;
+        --amber-soft: rgba(227, 163, 61, 0.15);
+        --teal: #4fb3a4;
+        --teal-soft: rgba(79, 179, 164, 0.15);
+        --blue: #5b9bf3;
+        --radius: 6px;
+        --glass-shadow:
+          0 16px 36px -10px rgba(0, 0, 0, 0.55),
+          0 0 0 1px rgba(255, 255, 255, 0.07);
+        --glass-shadow-hover:
+          0 24px 48px -12px rgba(0, 0, 0, 0.75),
+          0 0 20px rgba(227, 163, 61, 0.12), 0 0 0 1px rgba(227, 163, 61, 0.3);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background-color: #000000;
+        color-scheme: dark;
+        scroll-behavior: smooth;
+        overscroll-behavior: none;
+        overscroll-behavior-y: none;
+      }
+      body {
+        margin: 0;
+        background-color: #000000;
+        background: #000000;
+        color: var(--text);
+        font-family: var(--font-sans);
+        font-size: 14.5px;
+        line-height: 1.6;
+        letter-spacing: -0.011em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        overflow-x: hidden;
+        overscroll-behavior: none;
+        overscroll-behavior-y: none;
+      }
+      ::selection {
+        background: var(--amber);
+        color: #161616;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .mono {
+        font-family: var(--font-mono);
+      }
+
+      .wrap {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 3.5vw, 36px);
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ---------- Ultra-Clean Header ---------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #000000;
+        border-bottom: 1px solid #151515;
+        width: 100%;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px clamp(20px, 3.5vw, 44px);
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        color: #ffffff;
+        text-decoration: none;
+        letter-spacing: -0.02em;
+        flex-shrink: 0;
+      }
+      .brand-prism {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .nav-brand:hover .brand-prism {
+        transform: rotate(45deg) scale(1.15);
+      }
+      .nav-menu-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-shrink: 0;
+      }
+      .nav-link-clean {
+        font-family: var(--font-sans);
+        font-size: 13.5px;
+        font-weight: 450;
+        color: #8c8c94;
+        text-decoration: none;
+        letter-spacing: -0.005em;
+        transition: color 0.18s ease;
+        white-space: nowrap;
+      }
+      .nav-link-clean:hover {
+        color: #ffffff;
+      }
+      .nav-arrow {
+        display: none;
+      }
+
+      /* Hamburger Toggle Button - unboxed, floating, minimal */
+      .nav-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 6px 2px;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .nav-toggle-bar {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: #eceae4;
+        border-radius: 1px;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.2s ease;
+      }
+      .nav-toggle:hover .nav-toggle-bar,
+      .nav-toggle:active .nav-toggle-bar {
+        background-color: #ffffff;
+      }
+      /* Morph hamburger bars into an unboxed clean X when open */
+      .nav-toggle.open .nav-toggle-bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .nav-toggle.open .nav-toggle-bar:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-toggle.open .nav-toggle-bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      @media (max-width: 768px) {
+        .nav {
+          padding: 13px 20px;
+          position: relative;
+          justify-content: space-between;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-menu-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          width: 100%;
+          background: #000000;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 12px 24px 20px;
+          flex-direction: column;
+          gap: 0;
+          box-shadow: 0 24px 48px rgba(0, 0, 0, 0.95);
+          max-height: calc(100vh - 65px);
+          overflow-y: auto;
+          animation: navSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .nav-menu-links.open {
+          display: flex;
+        }
+        .nav-link-clean {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          padding: 15px 4px;
+          font-size: 18px;
+          font-weight: 550;
+          color: #ffffff;
+          letter-spacing: -0.015em;
+          border-radius: 0;
+          transition: color 0.15s ease;
+        }
+        .nav-link-clean:hover,
+        .nav-link-clean:active {
+          color: #ffffff;
+          background: transparent;
+          padding-left: 4px;
+        }
+        .nav-arrow {
+          display: inline-flex;
+          width: 17px;
+          height: 17px;
+          color: #71717a;
+          flex-shrink: 0;
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.18s ease;
+        }
+        .nav-link-clean:hover .nav-arrow,
+        .nav-link-clean:active .nav-arrow {
+          color: #ffffff;
+          transform: translate(2px, -2px);
+        }
+        @keyframes navSlideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+
+      /* ---------- Section Shell & Typography (Reference Style: media_1789284264915.png) ---------- */
+      section {
+        padding: 56px 0;
+        border-top: none;
+        scroll-margin-top: 64px;
+      }
+      .section-first {
+        padding-top: 40px;
+        border-top: none;
+        scroll-margin-top: 64px;
+      }
+      .section-head-clean {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        margin-bottom: 20px;
+      }
+      .section-title-clean {
+        font-size: 18px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0;
+        letter-spacing: -0.02em;
+        font-family: var(--font-sans);
+      }
+      .section-desc-clean {
+        font-size: 13px;
+        color: #737887;
+        font-weight: 400;
+        letter-spacing: -0.005em;
+        font-family: var(--font-sans);
+      }
+
+      /* ---------- Unified Segmented Container System (Projects & Certs) ---------- */
+      .segmented-box {
+        display: grid;
+        border: 1px solid #171717;
+        border-radius: 10px;
+        background: #000000;
+        overflow: hidden;
+      }
+      .cols-1 {
+        grid-template-columns: 1fr;
+      }
+      .cols-1 > .segmented-cell {
+        border-right: none;
+        border-bottom: 1px solid #171717;
+      }
+      .cols-1 > .segmented-cell:last-child {
+        border-bottom: none;
+      }
+      .cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .cols-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .cols-5 {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .cols-5 > .segmented-cell {
+        border-bottom: none;
+      }
+      .cols-5 > .segmented-cell:nth-child(5n) {
+        border-right: none;
+      }
+      .platform-badge {
+        display: inline-block;
+        font-size: 10.5px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--amber);
+        background: rgba(227, 163, 61, 0.08);
+        border: 1px solid rgba(227, 163, 61, 0.22);
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        font-family: var(--font-mono);
+      }
+
+      /* Individual Segmented Cell */
+      .segmented-cell {
+        padding: 28px 24px 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: #000000;
+        border-right: 1px solid #171717;
+        border-bottom: 1px solid #171717;
+        border-radius: 0; /* Straight borders, zero curve inside */
+        text-decoration: none;
+        color: inherit;
+        transition: background 0.15s ease; /* Fast, crisp, NO float */
+        cursor: default;
+        position: relative;
+      }
+      a.segmented-cell {
+        cursor: pointer;
+      }
+      .segmented-cell:hover {
+        background: #0a0a0a; /* Deep pure black to subtle charcoal */
+      }
+
+      /* Border management: remove right borders on last column, bottom borders on last row */
+      .cols-4 > .segmented-cell:nth-child(4n) {
+        border-right: none;
+      }
+      .cols-3 > .segmented-cell:nth-child(3n) {
+        border-right: none;
+      }
+      .cols-2 > .segmented-cell:nth-child(2n) {
+        border-right: none;
+      }
+
+      /* Cell Content Typography */
+      .cell-title {
+        font-size: 14.5px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0 0 8px;
+        letter-spacing: -0.015em;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-sans);
+      }
+      .cell-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .cell-header-row .cell-title {
+        margin-bottom: 0;
+      }
+      .cell-meta {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        color: #5b6170;
+        flex-shrink: 0;
+        letter-spacing: 0.01em;
+      }
+      .cell-subtitle {
+        font-size: 13px;
+        color: #9da3b4;
+        margin-bottom: 12px;
+        line-height: 1.5;
+        font-family: var(--font-sans);
+      }
+      .cell-desc {
+        font-size: 13px;
+        color: #868c9c;
+        line-height: 1.55;
+        margin: 0 0 20px;
+      }
+      .cell-desc:last-child {
+        margin-bottom: 0;
+      }
+      .cell-desc b {
+        color: #d4d8e2;
+        font-weight: 500;
+      }
+      .cell-footer {
+        font-size: 11.5px;
+        color: #5b6170;
+        font-family: var(--font-mono);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 6px;
+        letter-spacing: 0.01em;
+      }
+
+      /* Vector External Link Arrow */
+      .cell-arrow {
+        color: #636979;
+        flex-shrink: 0;
+        transition:
+          color 0.15s ease,
+          transform 0.15s ease;
+      }
+      .segmented-cell:hover .cell-arrow {
+        color: #ffffff;
+        transform: translate(1.5px, -1.5px);
+      }
+
+      /* Action buttons inside segmented cells or footers */
+      .btn {
+        font-family: var(--font-sans);
+        font-size: 12.5px;
+        font-weight: 500;
+        letter-spacing: -0.005em;
+        padding: 7px 13px;
+        border-radius: 6px;
+        border: 1px solid #202020;
+        background: #050505;
+        color: #d8dce6;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .btn:hover {
+        background: #121212;
+        color: #ffffff;
+        border-color: #333333;
+      }
+      .btn.primary {
+        background: #e3a33d;
+        color: #121316;
+        border-color: #e3a33d;
+        font-weight: 600;
+      }
+      .btn.primary:hover {
+        background: #eeb150;
+        border-color: #eeb150;
+      }
+
+      /* Tag pill */
+      .tag-pill {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: var(--teal);
+        background: rgba(79, 179, 164, 0.1);
+        padding: 2px 7px;
+        border-radius: 4px;
+        border: 1px solid rgba(79, 179, 164, 0.25);
+      }
+
+      /* Responsive Grid Breakpoints */
+      @media (max-width: 980px) {
+        .cols-5 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .cols-5 > .segmented-cell {
+          border-bottom: 1px solid #171717;
+          border-right: 1px solid #171717;
+        }
+        .cols-5 > .segmented-cell:nth-child(3n) {
+          border-right: none;
+        }
+        .cols-5 > .segmented-cell:nth-child(4),
+        .cols-5 > .segmented-cell:nth-child(5) {
+          border-bottom: none;
+        }
+      }
+
+      @media (max-width: 880px) {
+        .cols-4,
+        .cols-3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cols-4 > .segmented-cell:nth-child(4n),
+        .cols-3 > .segmented-cell:nth-child(3n) {
+          border-right: 1px solid #171717;
+        }
+        .cols-4 > .segmented-cell:nth-child(2n),
+        .cols-3 > .segmented-cell:nth-child(2n) {
+          border-right: none;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .cols-5 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cols-5 > .segmented-cell:nth-child(3n) {
+          border-right: 1px solid #171717;
+        }
+        .cols-5 > .segmented-cell:nth-child(2n) {
+          border-right: none;
+        }
+        .cols-5 > .segmented-cell:nth-child(5) {
+          grid-column: span 2;
+          border-bottom: none;
+          border-right: none;
+        }
+        .cols-5 > .segmented-cell:nth-child(4) {
+          border-bottom: 1px solid #171717;
+        }
+      }
+
+      @media (max-width: 580px) {
+        .cols-5,
+        .cols-4,
+        .cols-3,
+        .cols-2 {
+          grid-template-columns: 1fr;
+        }
+        .cols-5 > .segmented-cell:nth-child(5) {
+          grid-column: span 1 !important;
+        }
+        .segmented-cell {
+          border-right: none !important;
+          border-bottom: 1px solid #171717 !important;
+        }
+        .segmented-cell:last-child {
+          border-bottom: none !important;
+        }
+      }
+
+      /* ---------- Editorial Prose & Avatar (About Section) ---------- */
+      .about-card-layout {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+      .about-prose {
+        flex: 1;
+        min-width: 0;
+        font-size: 15px;
+        line-height: 1.7;
+        color: #9da3b4;
+        letter-spacing: -0.005em;
+      }
+      .about-prose p {
+        margin: 0 0 16px;
+      }
+      .about-prose p:last-child {
+        margin-bottom: 0;
+      }
+      .about-prose b {
+        color: #ffffff;
+        font-weight: 500;
+      }
+      .about-avatar-wrap {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 10px;
+      }
+      .about-avatar {
+        width: clamp(200px, 20vw, 240px);
+        height: clamp(200px, 20vw, 240px);
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        border: 2px solid rgba(255, 255, 255, 0.12);
+        outline: 5px solid #111111;
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.08),
+          0 16px 36px rgba(0, 0, 0, 0.75);
+        display: block;
+        transition:
+          border-color 0.25s ease,
+          outline-color 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .segmented-cell:hover .about-avatar,
+      .about-avatar:hover {
+        border-color: #ffffff;
+        outline-color: rgba(255, 255, 255, 0.25);
+        box-shadow:
+          0 0 0 1px #ffffff,
+          0 16px 36px rgba(0, 0, 0, 0.85),
+          0 0 24px rgba(255, 255, 255, 0.12);
+      }
+      @media (max-width: 768px) {
+        .about-card-layout {
+          flex-direction: column-reverse;
+          align-items: center;
+          gap: 28px;
+        }
+        .about-avatar {
+          width: 160px;
+          height: 160px;
+        }
+        .about-avatar-wrap {
+          padding-left: 0;
+        }
+      }
+
+      /* ---------- Cast-Style Technical Stack Marquee ---------- */
+      .cast-slider-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 8px;
+        mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 40px,
+          black calc(100% - 40px),
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 40px,
+          black calc(100% - 40px),
+          transparent
+        );
+      }
+      .cast-slider {
+        display: flex;
+        gap: 18px;
+        width: max-content;
+        will-change: transform;
+        animation: castMarquee 42s linear infinite;
+        padding: 6px 18px 14px 0;
+      }
+      .cast-slider:hover,
+      .cast-slider-wrapper:hover .cast-slider {
+        animation-play-state: paused;
+      }
+      @keyframes castMarquee {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+        100% {
+          transform: translate3d(-50%, 0, 0);
+        }
+      }
+      .cast-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        flex: 0 0 92px;
+        width: 92px;
+        max-width: 92px;
+        scroll-snap-align: start;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        padding: 0;
+        min-width: 0;
+      }
+      .cast-img-wrapper {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: #0a0a0c;
+        border: 1.5px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: border-color 0.2s ease;
+        flex-shrink: 0;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+      }
+      .cast-card:hover .cast-img-wrapper {
+        border-color: #ffffff;
+      }
+      .cast-img-wrapper img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+        filter: grayscale(100%) brightness(1.25);
+        opacity: 0.9;
+      }
+      .cast-img-wrapper img.icon-invert {
+        filter: invert(1) grayscale(100%) brightness(1.25);
+        opacity: 0.9;
+      }
+      .cast-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        width: 100%;
+      }
+      .cast-name {
+        font-family: var(--font-sans);
+        font-size: 13px;
+        font-weight: 600;
+        color: #ffffff;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        line-height: 16px;
+      }
+      .cast-character {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 450;
+        color: #7e8494;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        line-height: 14px;
+        letter-spacing: -0.01em;
+      }
+
+      /* ---------- Editorial Education Block (Non-Card) ---------- */
+      .edu-block {
+        width: 100%;
+      }
+      .edu-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .edu-institution {
+        font-size: 15px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0;
+        letter-spacing: -0.015em;
+      }
+      .edu-time {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: #737887;
+      }
+      .edu-degree {
+        font-size: 13.5px;
+        color: #9da3b4;
+        margin-bottom: 8px;
+      }
+      .edu-metrics {
+        font-size: 13px;
+        color: #868c9c;
+        line-height: 1.6;
+        margin: 0;
+      }
+      .edu-metrics b {
+        color: #d4d8e2;
+        font-weight: 500;
+      }
+      .accent-val {
+        color: #ffffff;
+        font-weight: 500;
+      }
+
+      /* ---------- Editorial Achievements List (Non-Card) ---------- */
+      .achievements-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      .achievement-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 14px 0;
+        border-bottom: 1px solid #141414;
+        gap: 16px;
+      }
+      .achievement-row:first-child {
+        border-top: 1px solid #141414;
+      }
+      .achievement-main {
+        flex: 1;
+      }
+      .achievement-title {
+        font-size: 14.5px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0 0 4px;
+        letter-spacing: -0.015em;
+      }
+      .achievement-desc {
+        font-size: 13px;
+        color: #868c9c;
+        line-height: 1.55;
+        margin: 0;
+      }
+      .achievement-desc b {
+        color: #ffffff;
+        font-weight: 500;
+      }
+      .achievement-meta {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        color: #5b6170;
+        flex-shrink: 0;
+        padding-top: 2px;
+      }
+      @media (max-width: 600px) {
+        .achievement-row {
+          flex-direction: column;
+          gap: 6px;
+        }
+      }
+
+      /* ---------- Editorial Contact (Non-Card) ---------- */
+      .contact-editorial {
+        max-width: 960px;
+      }
+      .contact-lede {
+        font-size: 14.5px;
+        color: #9da3b4;
+        line-height: 1.6;
+        margin: 0 0 18px;
+      }
+      .contact-inline-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        margin: 20px 0 26px;
+        font-family: var(--font-sans);
+        font-size: 14.5px;
+        font-weight: 500;
+      }
+      .contact-inline-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        color: #c5c9d5;
+        text-decoration: none;
+        background: transparent;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        cursor: pointer;
+        transition: color 0.15s ease;
+        line-height: 1.4;
+      }
+      .contact-inline-item:hover {
+        color: #ffffff;
+      }
+      .contact-inline-arrow {
+        color: #6b7280;
+        flex-shrink: 0;
+        transition:
+          color 0.15s ease,
+          transform 0.15s ease;
+      }
+      .contact-inline-item:hover .contact-inline-arrow {
+        color: #ffffff;
+        transform: translate(1.5px, -1.5px);
+      }
+      .contact-inline-dot {
+        color: #383d48;
+        user-select: none;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      .contact-subinfo {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: #636979;
+        padding-top: 12px;
+        border-top: none;
+      }
+      .contact-subinfo span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      footer {
+        padding: 36px 0 64px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: #555b6a;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        border-top: none;
+        margin-top: 20px;
+      }
+
+      /* ---------- Modern Magnifying Developer Grid Background ---------- */
+      .bg-grid-canvas {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 0;
+        /* Vignette mask preserving soft ambient falloff at document boundaries */
+        -webkit-mask-image: radial-gradient(
+          ellipse 90% 85% at 50% 32%,
+          #000 45%,
+          rgba(0, 0, 0, 0.45) 75%,
+          transparent 100%
+        );
+        mask-image: radial-gradient(
+          ellipse 90% 85% at 50% 32%,
+          #000 45%,
+          rgba(0, 0, 0, 0.45) 75%,
+          transparent 100%
+        );
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Modern Interactive Magnifying Developer Grid -->
+    <canvas
+      id="bgGridCanvas"
+      class="bg-grid-canvas"
+      aria-hidden="true"
+    ></canvas>
+
+    <header>
+      <div class="nav">
+        <a href="#about" class="nav-brand">
+          <span>Ash</span>
+          <!-- Isometric 3D Red Prism Logo (Matching Reference) -->
+          <svg
+            class="brand-prism"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M10 2L18 7.5L10 13L2 7.5L10 2Z" fill="#FF4D4D" />
+            <path d="M2 7.5L10 13V19L2 13.5V7.5Z" fill="#D32F2F" />
+            <path d="M10 13L18 7.5V13.5L10 19V13Z" fill="#9A0007" />
+          </svg>
+        </a>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          type="button"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav class="nav-menu-links" id="navMenuLinks">
+          <a href="#about" class="nav-link-clean">
+            <span>About</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="#education" class="nav-link-clean">
+            <span>Education</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="#profiles" class="nav-link-clean">
+            <span>Profiles</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="#projects" class="nav-link-clean">
+            <span>Projects</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="#stack" class="nav-link-clean">
+            <span>Stack</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="#certs" class="nav-link-clean">
+            <span>Credentials</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="#achievements" class="nav-link-clean">
+            <span>Achievements</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="#contact" class="nav-link-clean">
+            <span>Contact</span>
+            <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- ABOUT SECTION -->
+      <section id="about" class="section-first">
+        <div class="section-head-clean">
+          <h2 class="section-title-clean">About Me</h2>
+          <span class="section-desc-clean">Recursively curious.</span>
+        </div>
+
+        <div class="segmented-box cols-1">
+          <div class="segmented-cell">
+            <div class="about-card-layout">
+              <div class="about-prose">
+                <p>
+                  I'm <b>Ashish</b>, a Computer Science undergraduate who loves
+                  building backend architectures, distributed services, and
+                  intelligent web applications.
+                </p>
+                <p>
+                  Currently studying at
+                  <b>C.V. Raman Global University</b> (2023–2027) with a cumulative
+                  GPA of <b>8.19 / 10</b>, my foundation centers on strong Data
+                  Structures &amp; Algorithms, Object-Oriented Programming, Operating
+                  Systems, and Computer Networks.
+                </p>
+                <p>
+                  On the backend, I design reliable service architectures and REST
+                  APIs using <b>Java</b>, <b>Spring Boot</b>, and
+                  <b>Spring Data JPA</b>, paired with <b>Python &amp; FastAPI</b> for
+                  machine learning pipelines and <b>React</b> for reactive frontends.
+                </p>
+                <p>
+                  Beyond coursework, I am an active open-source contributor in
+                  <b>GirlScript Summer of Code (GSSOC)</b>, solve algorithmic problems
+                  daily on <b>LeetCode (Contest Rating: 1471)</b>, and collaborate
+                  with peers in the university's Coding Club.
+                </p>
+              </div>
+
+              <div class="about-avatar-wrap">
+                <img
+                  src="assets/profile.jpg"
+                  alt="Ashish Kumar Patra"
+                  class="about-avatar"
+                  loading="eager"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION SECTION -->
+      <section id="education">
+        <div class="section-head-clean">
+          <h2 class="section-title-clean">Education</h2>
+          <span class="section-desc-clean"
+            >Academic foundation &amp; engineering roots</span
+          >
+        </div>
+
+        <div class="segmented-box cols-1">
+          <!-- B.Tech (Current) -->
+          <div class="segmented-cell">
+            <div>
+              <div class="cell-header-row">
+                <h3 class="cell-title">C.V. Raman Global University</h3>
+                <span class="cell-meta mono">2023 – Active</span>
+              </div>
+              <div class="cell-subtitle">
+                B.Tech in Computer Science and Engineering · Bhubaneswar, Odisha
+              </div>
+              <p class="cell-desc">
+                <b>CGPA:</b> <span class="accent-val">8.19 / 10</span><br />
+                <b>Relevant Coursework:</b> Data Structures &amp; Algorithms,
+                Object-Oriented Programming, Database Management Systems (DBMS),
+                Operating Systems, Computer Networks, Software Engineering.
+              </p>
+            </div>
+          </div>
+
+          <!-- Intermediate (PCM) -->
+          <div class="segmented-cell">
+            <div>
+              <div class="cell-header-row">
+                <h3 class="cell-title">Bridgewell Global School</h3>
+                <span class="cell-meta mono">2021 – 2023</span>
+              </div>
+              <div class="cell-subtitle">
+                Intermediate (PCM – Physics, Chemistry, Mathematics) · Bhubaneswar, Odisha
+              </div>
+              <p class="cell-desc">
+                <b>Score:</b> <span class="accent-val">70%</span><br />
+                CBSE Curriculum with strong foundation in analytical mathematics, physics, chemistry, and computing basics.
+              </p>
+            </div>
+          </div>
+
+          <!-- High School Matriculation -->
+          <div class="segmented-cell">
+            <div>
+              <div class="cell-header-row">
+                <h3 class="cell-title">Nalanda Public School</h3>
+                <span class="cell-meta mono">2020 – 2021</span>
+              </div>
+              <div class="cell-subtitle">
+                High School Matriculation (Class X) · Cuttack, Odisha
+              </div>
+              <p class="cell-desc">
+                <b>Score:</b> <span class="accent-val">86%</span><br />
+                CBSE Board with distinction in mathematics, physical sciences, and foundation in computer applications.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CODING PROFILES SECTION (SEGMENTED GRID) -->
+      <section id="profiles">
+        <div class="section-head-clean">
+          <h2 class="section-title-clean">Coding Profiles</h2>
+          <span class="section-desc-clean">My digital footprints</span>
+        </div>
+
+        <div class="segmented-box cols-5">
+          <!-- Codolio -->
+          <a
+            href="https://codolio.com/profile/ashorwott"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="segmented-cell"
+          >
+            <div>
+              <h3 class="cell-title">
+                Codolio
+                <svg
+                  class="cell-arrow"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </h3>
+              <p class="cell-desc">
+                Centralized <b>Unified CP Portfolio</b> tracking developer
+                ratings, contest history, and cross-platform algorithmic problem
+                solving.
+              </p>
+            </div>
+            <div class="cell-footer mono">@ashorwott</div>
+          </a>
+
+          <!-- LeetCode -->
+          <a
+            href="https://leetcode.com/90tash"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="segmented-cell"
+          >
+            <div>
+              <h3 class="cell-title">
+                LeetCode
+                <svg
+                  class="cell-arrow"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </h3>
+              <p class="cell-desc">
+                Contest rating of <b>1471</b> with global weekly contest rank
+                <b>4,804</b>. Daily problem solving in DP, Graphs, and Trees.
+              </p>
+            </div>
+            <div class="cell-footer mono">@90tash</div>
+          </a>
+
+          <!-- Codeforces -->
+          <a
+            href="https://codeforces.com/profile/ashorwott"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="segmented-cell"
+          >
+            <div>
+              <h3 class="cell-title">
+                Codeforces
+                <svg
+                  class="cell-arrow"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </h3>
+              <p class="cell-desc">
+                Competitive programming rounds, speed implementation, and
+                mathematical problem solving.
+              </p>
+            </div>
+            <div class="cell-footer mono">@ashorwott</div>
+          </a>
+
+          <!-- CodeChef -->
+          <a
+            href="https://www.codechef.com/users/ashorwott"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="segmented-cell"
+          >
+            <div>
+              <h3 class="cell-title">
+                CodeChef
+                <svg
+                  class="cell-arrow"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </h3>
+              <p class="cell-desc">
+                Star rated competitive programmer participating in rated
+                Starters and algorithmic division challenges.
+              </p>
+            </div>
+            <div class="cell-footer mono">@ashorwott</div>
+          </a>
+
+          <!-- HackerRank -->
+          <a
+            href="https://www.hackerrank.com/profile/hazardous_ash"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="segmented-cell"
+          >
+            <div>
+              <h3 class="cell-title">
+                HackerRank
+                <svg
+                  class="cell-arrow"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </h3>
+              <p class="cell-desc">
+                Skill certifications in Problem Solving, Java, and Python with
+                core algorithmic domain badges.
+              </p>
+            </div>
+            <div class="cell-footer mono">@hazardous_ash</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION (CLEAN SEGMENTED GRID) -->
+      <section id="projects">
+        <div class="section-head-clean">
+          <h2 class="section-title-clean">Projects</h2>
+          <span class="section-desc-clean">Things I've built / building</span>
+        </div>
+
+        <div class="segmented-box cols-4">
+          <!-- EpicStream -->
+          <a
+            href="https://epicstreams.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="segmented-cell"
+          >
+            <div>
+              <h3 class="cell-title">
+                EpicStream
+                <svg
+                  class="cell-arrow"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </h3>
+              <p class="cell-desc">
+                A streaming site, with great visuals. Cinematic discovery
+                platform built with React, TMDB API, and Zustand.
+              </p>
+            </div>
+            <div class="cell-footer">May 2026</div>
+          </a>
+
+          <!-- Habitra -->
+          <a
+            href="https://github.com/90tash/Habitra"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="segmented-cell"
+          >
+            <div>
+              <h3 class="cell-title">
+                Habitra
+                <svg
+                  class="cell-arrow"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </h3>
+              <p class="cell-desc">
+                A modern habit tracker app built with React, Vite, and
+                TypeScript. Daily routines, streak tracking, focus tools, and
+                analytics.
+              </p>
+            </div>
+            <div class="cell-footer">February 2026</div>
+          </a>
+
+          <!-- WatchGPT -->
+          <a
+            href="https://github.com/90tash/WatchGPT"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="segmented-cell"
+          >
+            <div>
+              <h3 class="cell-title">
+                WatchGPT
+                <svg
+                  class="cell-arrow"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </h3>
+              <p class="cell-desc">
+                Fast, intelligent movie companion. Hybrid TF-IDF recommendations
+                paired with a sentiment-aware conversational chatbot.
+              </p>
+            </div>
+            <div class="cell-footer">January 2026</div>
+          </a>
+
+          <!-- FlashGen -->
+          <a
+            href="https://github.com/90tash"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="segmented-cell"
+          >
+            <div>
+              <h3 class="cell-title">
+                FlashGen
+                <svg
+                  class="cell-arrow"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </h3>
+              <p class="cell-desc">
+                AI-powered flashcard generation. Extract key concepts from study
+                notes and auto-generate question-and-answer decks.
+              </p>
+            </div>
+            <div class="cell-footer">August 2025</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- TECH STACK SECTION (CAST-STYLE CIRCULAR SLIDER) -->
+      <section id="stack">
+        <div class="section-head-clean">
+          <h2 class="section-title-clean">Tech Stack</h2>
+        </div>
+
+        <div class="cast-slider-wrapper">
+          <div class="cast-slider" id="stack-slider">
+            <!-- Java -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+                  alt="Java"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Java</span>
+                <span class="cast-character">Language</span>
+              </div>
+            </div>
+
+            <!-- Python -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                  alt="Python"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Python</span>
+                <span class="cast-character">Language</span>
+              </div>
+            </div>
+
+            <!-- C / C++ -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+                  alt="C/C++"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">C / C++</span>
+                <span class="cast-character">Language</span>
+              </div>
+            </div>
+
+            <!-- C# -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg"
+                  alt="C#"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">C#</span>
+                <span class="cast-character">Language</span>
+              </div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                  alt="JavaScript"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">JavaScript</span>
+                <span class="cast-character">Language</span>
+              </div>
+            </div>
+
+            <!-- SQL -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+                  alt="SQL"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">SQL</span>
+                <span class="cast-character">Database</span>
+              </div>
+            </div>
+
+            <!-- Spring Boot -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg"
+                  alt="Spring Boot"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Spring Boot</span>
+                <span class="cast-character">Backend Framework</span>
+              </div>
+            </div>
+
+            <!-- Spring Data JPA -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hibernate/hibernate-original.svg"
+                  alt="Spring Data JPA"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Spring JPA</span>
+                <span class="cast-character">ORM / Persistence</span>
+              </div>
+            </div>
+
+            <!-- .NET Framework -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg"
+                  alt=".NET Framework"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">.NET</span>
+                <span class="cast-character">Framework</span>
+              </div>
+            </div>
+
+            <!-- FastAPI -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg"
+                  alt="FastAPI"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">FastAPI</span>
+                <span class="cast-character">Python Backend</span>
+              </div>
+            </div>
+
+            <!-- Flask -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg"
+                  alt="Flask"
+                  class="icon-invert"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Flask</span>
+                <span class="cast-character">Microframework</span>
+              </div>
+            </div>
+
+            <!-- REST APIs -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg"
+                  alt="REST APIs"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">REST APIs</span>
+                <span class="cast-character">Architecture</span>
+              </div>
+            </div>
+
+            <!-- Maven -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg"
+                  alt="Maven"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Maven</span>
+                <span class="cast-character">Build Tool</span>
+              </div>
+            </div>
+
+            <!-- React -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                  alt="React"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">React</span>
+                <span class="cast-character">Frontend Library</span>
+              </div>
+            </div>
+
+            <!-- HTML5 & CSS3 -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                  alt="HTML5 & CSS3"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">HTML5 / CSS3</span>
+                <span class="cast-character">Web UI</span>
+              </div>
+            </div>
+
+            <!-- Capacitor -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/capacitor/capacitor-original.svg"
+                  alt="Capacitor"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Capacitor</span>
+                <span class="cast-character">Mobile Runtime</span>
+              </div>
+            </div>
+
+            <!-- Scikit-learn -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg"
+                  alt="Scikit-learn"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Scikit-learn</span>
+                <span class="cast-character">Machine Learning</span>
+              </div>
+            </div>
+
+            <!-- Pandas -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg"
+                  alt="Pandas"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Pandas</span>
+                <span class="cast-character">Data Analysis</span>
+              </div>
+            </div>
+
+            <!-- NumPy -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg"
+                  alt="NumPy"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">NumPy</span>
+                <span class="cast-character">Numerical Engine</span>
+              </div>
+            </div>
+
+            <!-- Git -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                  alt="Git"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Git</span>
+                <span class="cast-character">Version Control</span>
+              </div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                  alt="GitHub"
+                  class="icon-invert"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">GitHub</span>
+                <span class="cast-character">Collaboration</span>
+              </div>
+            </div>
+
+            <!-- Linux CLI -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg"
+                  alt="Linux CLI"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Linux CLI</span>
+                <span class="cast-character">Environment</span>
+              </div>
+            </div>
+
+            <!-- VS Code -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
+                  alt="VS Code"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">VS Code</span>
+                <span class="cast-character">Code Editor</span>
+              </div>
+            </div>
+
+            <!-- IntelliJ IDEA -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg"
+                  alt="IntelliJ IDEA"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">IntelliJ IDEA</span>
+                <span class="cast-character">Java IDE</span>
+              </div>
+            </div>
+
+            <!-- Postman -->
+            <div class="cast-card">
+              <div class="cast-img-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg"
+                  alt="Postman"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cast-info">
+                <span class="cast-name">Postman</span>
+                <span class="cast-character">API Testing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS SECTION -->
+      <section id="certs">
+        <div class="section-head-clean">
+          <h2 class="section-title-clean">Certificates &amp; Credentials</h2>
+        </div>
+
+        <div class="segmented-box cols-3">
+          <div class="segmented-cell">
+            <div>
+              <h3 class="cell-title">Introduction to Cloud 101</h3>
+              <p class="cell-desc">
+                Cloud architecture foundations, compute infrastructure, security
+                models, and cloud storage paradigms.
+              </p>
+            </div>
+            <div class="cell-footer">AWS Educate</div>
+          </div>
+
+          <div class="segmented-cell">
+            <div>
+              <h3 class="cell-title">Google IT Automation with Python</h3>
+              <p class="cell-desc">
+                Automated scripting, operating system interfaces, version
+                control with Git, and system troubleshooting.
+              </p>
+            </div>
+            <div class="cell-footer">Coursera · Google</div>
+          </div>
+
+          <div class="segmented-cell">
+            <div>
+              <h3 class="cell-title">Building Intelligent Agents</h3>
+              <p class="cell-desc">
+                Autonomous agent workflows, function calling, tool augmentation,
+                and orchestration patterns.
+              </p>
+            </div>
+            <div class="cell-footer">OpenAI</div>
+          </div>
+
+          <div class="segmented-cell">
+            <div>
+              <h3 class="cell-title">Introduction to Modern AI</h3>
+              <p class="cell-desc">
+                Core AI algorithms, neural network fundamentals, predictive
+                modeling, and applied machine learning.
+              </p>
+            </div>
+            <div class="cell-footer">Cisco Networking Academy</div>
+          </div>
+
+          <div class="segmented-cell">
+            <div>
+              <h3 class="cell-title">Introduction to Cybersecurity</h3>
+              <p class="cell-desc">
+                Network defense mechanisms, security threats, cryptographic
+                concepts, and secure software hygiene.
+              </p>
+            </div>
+            <div class="cell-footer">Cisco Networking Academy</div>
+          </div>
+
+          <div class="segmented-cell">
+            <div>
+              <h3 class="cell-title">Generative AI &amp; Prompt Engineering</h3>
+              <p class="cell-desc">
+                Prompt structuring, LLM attention mechanisms, in-context
+                learning, and enterprise generative AI solutions.
+              </p>
+            </div>
+            <div class="cell-footer">Cognizant SkillSpring</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXTRACURRICULAR & ACHIEVEMENTS SECTION -->
+      <section id="achievements">
+        <div class="section-head-clean">
+          <h2 class="section-title-clean">Achievements &amp; Impact</h2>
+          <span class="section-desc-clean"
+            >Milestones, contributions &amp; community</span
+          >
+        </div>
+
+        <div class="segmented-box cols-1">
+          <!-- LeetCode Contest -->
+          <div class="segmented-cell">
+            <div class="cell-header-row">
+              <h3 class="cell-title">LeetCode Contest</h3>
+              <span class="cell-meta mono">LeetCode: @90tash</span>
+            </div>
+            <p class="cell-desc">
+              Contest rating of <b>1471</b> with a best global weekly contest
+              rank of <b>4,804</b>. Daily problem solving in Dynamic
+              Programming, Graphs, Trees, and Greedy algorithms.
+            </p>
+          </div>
+
+          <!-- GSSOC -->
+          <div class="segmented-cell">
+            <div class="cell-header-row">
+              <h3 class="cell-title">GirlScript Summer of Code (GSSOC)</h3>
+              <span class="cell-meta mono">Open Source</span>
+            </div>
+            <p class="cell-desc">
+              Active <b>Contributor</b> to open-source software, submitting
+              feature pull requests, debugging issues, and collaborating
+              across repositories.
+            </p>
+          </div>
+
+          <!-- Coding Club -->
+          <div class="segmented-cell">
+            <div class="cell-header-row">
+              <h3 class="cell-title">Coding Club</h3>
+              <span class="cell-meta mono">Community</span>
+            </div>
+            <p class="cell-desc">
+              Lead participant in university coding workshops, algorithm
+              discussion sessions, and peer-to-peer programming hackathons.
+            </p>
+          </div>
+
+          <!-- NSS Leadership -->
+          <div class="segmented-cell">
+            <div class="cell-header-row">
+              <h3 class="cell-title">
+                National Service Scheme (NSS) Leadership
+              </h3>
+              <span class="cell-meta mono">Leadership</span>
+            </div>
+            <p class="cell-desc">
+              Organized youth literacy drives, environmental sustainability
+              campaigns, and civic responsibility initiatives as an active NSS
+              volunteer.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION (EDITORIAL CONTACT, NON-CARD) -->
+      <section id="contact" style="padding-bottom: 30px">
+        <div class="section-head-clean">
+          <h2 class="section-title-clean">Get in Touch</h2>
+        </div>
+
+        <div class="contact-editorial">
+          <p class="contact-lede">
+            Feel free to reach out directly for full-stack and backend
+            engineering opportunities, collaborative builds, or technical
+            conversations.
+          </p>
+
+          <div class="contact-inline-row">
+            <!-- Email Me -->
+            <a
+              href="mailto:pashishkumar360@gmail.com"
+              class="contact-inline-item"
+            >
+              <span>Email Me</span>
+              <svg
+                class="contact-inline-arrow"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+
+            <span class="contact-inline-dot" aria-hidden="true">·</span>
+
+            <!-- GitHub -->
+            <a
+              href="https://github.com/90tash"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-inline-item"
+            >
+              <span>GitHub</span>
+              <svg
+                class="contact-inline-arrow"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+
+            <span class="contact-inline-dot" aria-hidden="true">·</span>
+
+            <!-- LinkedIn -->
+            <a
+              href="https://linkedin.com/in/AshishKumarPatra"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-inline-item"
+            >
+              <span>LinkedIn</span>
+              <svg
+                class="contact-inline-arrow"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="contact-subinfo">
+            <span>📍 Bhubaneswar, Odisha, India</span>
+            <span>📞 +91 9861329376</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <span>© 2026 Ashish Kumar Patra</span>
+        <span
+          >Bhubaneswar, Odisha ·
+          <a
+            href="https://github.com/90tash"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: var(--teal)"
+            >github.com/90tash</a
+          ></span
+        >
+      </footer>
+    </main>
+
+    <script>
+      // Technical Stack Continuous Infinite Marquee
+      (function () {
+        const slider = document.getElementById("stack-slider");
+        if (!slider) return;
+
+        // Clone all original items for seamless infinite marquee loop
+        const originalCards = Array.from(slider.children);
+        originalCards.forEach((card) => {
+          const clone = card.cloneNode(true);
+          clone.setAttribute("aria-hidden", "true");
+          slider.appendChild(clone);
+        });
+      })();
+
+      // Interactive Ambient Grid (Default 32px Dimensions with Seamless Organic Blend)
+      (function () {
+        const canvas = document.getElementById("bgGridCanvas");
+        if (!canvas) return;
+
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        const GRID_SIZE = 32; // Restored default 32px grid dimension
+        const FIELD_RADIUS = 380; // Broad, seamless influence field without artificial boundaries
+        const STRETCH = 0.22; // Subtle, organic spatial expansion (~22% at epicenter)
+        const SAMPLE_STEP = 8; // Smooth curve sampling
+
+        let width = 0;
+        let height = 0;
+        let dpr = 1;
+
+        let mouseX = -999;
+        let mouseY = -999;
+        let currX = -999;
+        let currY = -999;
+        let targetIntensity = 0;
+        let currentIntensity = 0;
+        let isRunning = false;
+
+        // Smooth C2-continuous bell falloff: zero derivative and second derivative at boundary
+        function warpPoint(x, y, cx, cy, factor) {
+          const dx = x - cx;
+          const dy = y - cy;
+          const distSq = dx * dx + dy * dy;
+          const radSq = FIELD_RADIUS * FIELD_RADIUS;
+          if (distSq >= radSq) {
+            return [x, y, 0];
+          }
+          const dist = Math.sqrt(distSq);
+          const u = dist / FIELD_RADIUS;
+          // (1 - u^2)^3 provides an imperceptible, silky transition into the unwarped grid
+          const falloff = (1 - u * u) * (1 - u * u) * (1 - u * u);
+          const s = factor * falloff;
+          return [x + dx * s, y + dy * s, falloff];
+        }
+
+        function render(cx, cy, intensity) {
+          ctx.clearRect(0, 0, width, height);
+
+          const activeFactor = STRETCH * intensity;
+          const radSq = FIELD_RADIUS * FIELD_RADIUS;
+          const hasInteraction = intensity > 0.005;
+
+          // 1. Gentle Diffused Ambient Luminescence (Zero harsh edges, blends into background)
+          if (hasInteraction) {
+            const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, FIELD_RADIUS);
+            glow.addColorStop(0, `rgba(255, 255, 255, ${0.02 * intensity})`);
+            glow.addColorStop(0.4, `rgba(227, 163, 61, ${0.008 * intensity})`);
+            glow.addColorStop(1, "rgba(0, 0, 0, 0)");
+            ctx.fillStyle = glow;
+            ctx.beginPath();
+            ctx.arc(cx, cy, FIELD_RADIUS, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          // 2. Base Grid Lines (Pass 1: Ambient line rendering)
+          ctx.beginPath();
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.035)";
+
+          // Vertical Lines
+          for (let x0 = 0; x0 <= width; x0 += GRID_SIZE) {
+            const dx = x0 - cx;
+            const dxSq = dx * dx;
+
+            if (!hasInteraction || dxSq >= radSq) {
+              ctx.moveTo(x0, 0);
+              ctx.lineTo(x0, height);
+            } else {
+              const dyMax = Math.sqrt(radSq - dxSq);
+              const yTop = Math.max(0, cy - dyMax);
+              const yBottom = Math.min(height, cy + dyMax);
+
+              ctx.moveTo(x0, 0);
+              ctx.lineTo(x0, yTop);
+
+              for (let y = yTop; y < yBottom; y += SAMPLE_STEP) {
+                const [wx, wy] = warpPoint(x0, y, cx, cy, activeFactor);
+                ctx.lineTo(wx, wy);
+              }
+              ctx.lineTo(x0, yBottom);
+              ctx.lineTo(x0, height);
+            }
+          }
+
+          // Horizontal Lines
+          for (let y0 = 0; y0 <= height; y0 += GRID_SIZE) {
+            const dy = y0 - cy;
+            const dySq = dy * dy;
+
+            if (!hasInteraction || dySq >= radSq) {
+              ctx.moveTo(0, y0);
+              ctx.lineTo(width, y0);
+            } else {
+              const dxMax = Math.sqrt(radSq - dySq);
+              const xLeft = Math.max(0, cx - dxMax);
+              const xRight = Math.min(width, cx + dxMax);
+
+              ctx.moveTo(0, y0);
+              ctx.lineTo(xLeft, y0);
+
+              for (let x = xLeft; x < xRight; x += SAMPLE_STEP) {
+                const [wx, wy] = warpPoint(x, y0, cx, cy, activeFactor);
+                ctx.lineTo(wx, wy);
+              }
+              ctx.lineTo(xRight, y0);
+              ctx.lineTo(width, y0);
+            }
+          }
+          ctx.stroke();
+
+          // 3. Subtle Line Illumination (Pass 2: Soft radial gradient stroke without clipping)
+          if (hasInteraction) {
+            ctx.beginPath();
+            const strokeGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, FIELD_RADIUS);
+            strokeGrad.addColorStop(0, `rgba(255, 255, 255, ${0.11 * intensity})`);
+            strokeGrad.addColorStop(0.35, `rgba(255, 255, 255, ${0.05 * intensity})`);
+            strokeGrad.addColorStop(0.7, `rgba(255, 255, 255, ${0.015 * intensity})`);
+            strokeGrad.addColorStop(1, "rgba(255, 255, 255, 0)");
+            ctx.strokeStyle = strokeGrad;
+            ctx.lineWidth = 1;
+
+            // Redraw only active intersecting lines for the soft illumination pass
+            for (let x0 = 0; x0 <= width; x0 += GRID_SIZE) {
+              const dx = x0 - cx;
+              const dxSq = dx * dx;
+              if (dxSq < radSq) {
+                const dyMax = Math.sqrt(radSq - dxSq);
+                const yTop = Math.max(0, cy - dyMax);
+                const yBottom = Math.min(height, cy + dyMax);
+
+                ctx.moveTo(x0, yTop);
+                for (let y = yTop; y < yBottom; y += SAMPLE_STEP) {
+                  const [wx, wy] = warpPoint(x0, y, cx, cy, activeFactor);
+                  ctx.lineTo(wx, wy);
+                }
+                ctx.lineTo(x0, yBottom);
+              }
+            }
+
+            for (let y0 = 0; y0 <= height; y0 += GRID_SIZE) {
+              const dy = y0 - cy;
+              const dySq = dy * dy;
+              if (dySq < radSq) {
+                const dxMax = Math.sqrt(radSq - dySq);
+                const xLeft = Math.max(0, cx - dxMax);
+                const xRight = Math.min(width, cx + dxMax);
+
+                ctx.moveTo(xLeft, y0);
+                for (let x = xLeft; x < xRight; x += SAMPLE_STEP) {
+                  const [wx, wy] = warpPoint(x, y0, cx, cy, activeFactor);
+                  ctx.lineTo(wx, wy);
+                }
+                ctx.lineTo(xRight, y0);
+              }
+            }
+            ctx.stroke();
+          }
+        }
+
+        function animate() {
+          if (!isRunning) return;
+
+          // Organic, fluid damping
+          currX += (mouseX - currX) * 0.09;
+          currY += (mouseY - currY) * 0.09;
+          currentIntensity += (targetIntensity - currentIntensity) * 0.08;
+
+          render(currX, currY, currentIntensity);
+
+          // Settle check for zero idle CPU usage
+          const distRemaining = Math.hypot(mouseX - currX, mouseY - currY);
+          const intensityDiff = Math.abs(targetIntensity - currentIntensity);
+
+          if (distRemaining < 0.15 && intensityDiff < 0.002) {
+            currX = mouseX;
+            currY = mouseY;
+            currentIntensity = targetIntensity;
+            render(currX, currY, currentIntensity);
+            isRunning = false;
+            return;
+          }
+
+          requestAnimationFrame(animate);
+        }
+
+        function wakeUp() {
+          if (!isRunning) {
+            isRunning = true;
+            requestAnimationFrame(animate);
+          }
+        }
+
+        function isMobileView() {
+          return window.innerWidth <= 768 || window.matchMedia("(max-width: 768px)").matches;
+        }
+
+        function resize() {
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = Math.round(width * dpr);
+          canvas.height = Math.round(height * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+          if (isMobileView()) {
+            targetIntensity = 0;
+            currentIntensity = 0;
+            currX = -9999;
+            currY = -9999;
+            isRunning = false;
+            render(-9999, -9999, 0);
+          } else {
+            render(currX, currY, currentIntensity);
+          }
+        }
+
+        // Reduced Motion Support
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReduced) {
+          resize();
+          window.addEventListener("resize", resize);
+          return;
+        }
+
+        resize();
+        window.addEventListener("resize", resize);
+
+        window.addEventListener(
+          "pointermove",
+          function (e) {
+            // Disable grid hover animation in mobile view or for touch interactions
+            if (e.pointerType === "touch" || isMobileView()) {
+              return;
+            }
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (currX < -500) {
+              currX = mouseX;
+              currY = mouseY;
+            }
+            targetIntensity = 1;
+            wakeUp();
+          },
+          { passive: true },
+        );
+
+        document.addEventListener("mouseleave", function () {
+          targetIntensity = 0;
+          wakeUp();
+        });
+      })();
+
+      // Mobile Navigation Menu Toggle
+      (function () {
+        const navToggle = document.getElementById("navToggle");
+        const navMenuLinks = document.getElementById("navMenuLinks");
+        if (!navToggle || !navMenuLinks) return;
+
+        function toggleMenu() {
+          const isOpen = navToggle.classList.toggle("open");
+          navMenuLinks.classList.toggle("open", isOpen);
+          navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        }
+
+        function closeMenu() {
+          navToggle.classList.remove("open");
+          navMenuLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+
+        navToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          toggleMenu();
+        });
+
+        // Close when tapping any navigation link
+        navMenuLinks.querySelectorAll(".nav-link-clean").forEach(function (link) {
+          link.addEventListener("click", function () {
+            closeMenu();
+          });
+        });
+
+        // Close when clicking outside of header / nav
+        document.addEventListener("click", function (e) {
+          if (!navToggle.contains(e.target) && !navMenuLinks.contains(e.target)) {
+            closeMenu();
+          }
+        });
+
+        // Close on Escape key press
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            closeMenu();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
