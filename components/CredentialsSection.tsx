@@ -135,10 +135,10 @@ export function CredentialsSection() {
           </div>
 
           {/* Segmented Tab Controls - Fully responsive with sliding pill */}
-          <div className="glass flex w-full sm:w-auto sm:inline-flex items-center justify-between sm:justify-start gap-1 rounded-full p-1 sm:p-1.5 border border-border overflow-x-auto no-scrollbar">
+          <div className="glass inline-flex shrink-0 items-center gap-1 rounded-full p-1.5 sm:p-2 overflow-x-auto no-scrollbar max-w-full">
             <button
               onClick={() => handleTabChange("education")}
-              className={`relative flex flex-1 sm:flex-initial items-center justify-center gap-1 sm:gap-2 rounded-full px-2 sm:px-4 py-1.5 sm:py-2 text-[0.68rem] min-[390px]:text-[0.72rem] sm:text-xs font-mono transition-colors ${
+              className={`relative flex shrink-0 items-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-1.5 sm:px-4 sm:py-2 text-[0.72rem] sm:text-xs font-mono transition-colors ${
                 activeTab === "education"
                   ? "text-white font-semibold"
                   : "text-muted hover:text-foreground"
@@ -151,13 +151,13 @@ export function CredentialsSection() {
                   transition={{ type: "spring", stiffness: 500, damping: 35 }}
                 />
               )}
-              <GraduationCap className="relative z-10 h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
+              <GraduationCap className="relative z-10 h-3.5 w-3.5" />
               <span className="relative z-10 whitespace-nowrap">education</span>
             </button>
 
             <button
               onClick={() => handleTabChange("certs")}
-              className={`relative flex flex-1 sm:flex-initial items-center justify-center gap-1 sm:gap-2 rounded-full px-2 sm:px-4 py-1.5 sm:py-2 text-[0.68rem] min-[390px]:text-[0.72rem] sm:text-xs font-mono transition-colors ${
+              className={`relative flex shrink-0 items-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-1.5 sm:px-4 sm:py-2 text-[0.72rem] sm:text-xs font-mono transition-colors ${
                 activeTab === "certs"
                   ? "text-white font-semibold"
                   : "text-muted hover:text-foreground"
@@ -170,16 +170,13 @@ export function CredentialsSection() {
                   transition={{ type: "spring", stiffness: 500, damping: 35 }}
                 />
               )}
-              <Award className="relative z-10 h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
-              <span className="relative z-10 whitespace-nowrap">
-                <span className="hidden min-[380px]:inline">certifications</span>
-                <span className="min-[380px]:hidden">certs</span>
-              </span>
+              <Award className="relative z-10 h-3.5 w-3.5" />
+              <span className="relative z-10 whitespace-nowrap">certifications</span>
             </button>
 
             <button
               onClick={() => handleTabChange("profiles")}
-              className={`relative flex flex-1 sm:flex-initial items-center justify-center gap-1 sm:gap-2 rounded-full px-2 sm:px-4 py-1.5 sm:py-2 text-[0.68rem] min-[390px]:text-[0.72rem] sm:text-xs font-mono transition-colors ${
+              className={`relative flex shrink-0 items-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-1.5 sm:px-4 sm:py-2 text-[0.72rem] sm:text-xs font-mono transition-colors ${
                 activeTab === "profiles"
                   ? "text-white font-semibold"
                   : "text-muted hover:text-foreground"
@@ -192,11 +189,8 @@ export function CredentialsSection() {
                   transition={{ type: "spring", stiffness: 500, damping: 35 }}
                 />
               )}
-              <Code2 className="relative z-10 h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
-              <span className="relative z-10 whitespace-nowrap">
-                <span className="hidden min-[380px]:inline">cp footprints</span>
-                <span className="min-[380px]:hidden">footprints</span>
-              </span>
+              <Code2 className="relative z-10 h-3.5 w-3.5" />
+              <span className="relative z-10 whitespace-nowrap">cp footprints</span>
             </button>
           </div>
         </div>

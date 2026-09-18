@@ -1,21 +1,8 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+
+const GOOGLE_DRIVE_RESUME_URL =
+  "https://drive.google.com/file/d/19iGvt9Ox3e2m_eAIil58jSQ2C9zTZz2z/view?usp=sharing";
 
 export async function GET() {
-  const filePath = path.join(process.cwd(), "public", "resume.pdf");
-  
-  if (!fs.existsSync(filePath)) {
-    return new NextResponse("Resume file not found", { status: 404 });
-  }
-
-  const fileBuffer = fs.readFileSync(filePath);
-
-  return new NextResponse(fileBuffer, {
-    headers: {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": 'attachment; filename="Ashish_Kumar_Patra_Resume.pdf"',
-      "Cache-Control": "no-cache",
-    },
-  });
+  return NextResponse.redirect(GOOGLE_DRIVE_RESUME_URL, 307);
 }
