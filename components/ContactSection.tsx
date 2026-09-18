@@ -9,6 +9,12 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const recipient = "pashishkumar360@gmail.com";
+    const subject = `Portfolio Inquiry from ${formData.name.trim() || "Visitor"}`;
+    const body = `Hi Ashish,\n\n${formData.message}\n\n---\nSender Name: ${formData.name}\nSender Email: ${formData.email}`;
+
+    const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
     setSubmitted(true);
   };
 
@@ -114,10 +120,20 @@ export function ContactSection() {
           {submitted ? (
             <div className="mt-8 rounded-2xl border border-accent/40 bg-accent/10 p-6 sm:p-8 text-center">
               <CheckCircle2 className="mx-auto h-9 w-9 sm:h-10 sm:w-10 text-accent mb-3" />
-              <h4 className="font-display text-lg sm:text-xl font-bold lowercase text-foreground">message transmitted</h4>
-              <p className="mt-2 text-xs text-muted">
-                Thanks for reaching out! I typically respond within 24 hours.
+              <h4 className="font-display text-lg sm:text-xl font-bold lowercase text-foreground">
+                email draft prepared
+              </h4>
+              <p className="mt-2 text-xs text-muted max-w-sm mx-auto">
+                Your email client should have opened with this message pre-filled for <span className="text-foreground font-mono">pashishkumar360@gmail.com</span>. Just hit send in your email app!
               </p>
+              <div className="mt-4">
+                <a
+                  href={`mailto:pashishkumar360@gmail.com?subject=${encodeURIComponent(`Portfolio Inquiry from ${formData.name.trim() || "Visitor"}`)}&body=${encodeURIComponent(`Hi Ashish,\n\n${formData.message}\n\n---\nSender Name: ${formData.name}\nSender Email: ${formData.email}`)}`}
+                  className="text-xs font-mono text-accent underline hover:text-accent/80"
+                >
+                  Didn't open automatically? Click here to send
+                </a>
+              </div>
               <button
                 onClick={() => {
                   setSubmitted(false);
@@ -132,6 +148,9 @@ export function ContactSection() {
             <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-5 sm:gap-6">
               <div className="flex flex-col gap-5 sm:flex-row sm:gap-6">
                 <input
+                  type="text"
+                  name="name"
+                  autoComplete="name"
                   required
                   placeholder="NAME"
                   value={formData.name}
@@ -140,6 +159,8 @@ export function ContactSection() {
                 />
                 <input
                   type="email"
+                  name="email"
+                  autoComplete="email"
                   required
                   placeholder="EMAIL"
                   value={formData.email}
@@ -149,6 +170,7 @@ export function ContactSection() {
               </div>
 
               <textarea
+                name="message"
                 required
                 rows={4}
                 placeholder="MESSAGE"

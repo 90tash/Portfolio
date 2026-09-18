@@ -14,7 +14,7 @@ export function EditorialIntro() {
           className="flex flex-col items-start"
         >
           <span className="max-w-[34ch] font-mono text-xs uppercase tracking-widest text-muted sm:pl-10">
-            ashish patra is an engineer designing
+            I am an engineer designing
           </span>
 
           <h2
@@ -25,9 +25,18 @@ export function EditorialIntro() {
             <span className="block text-accent">reactive web tools</span>
           </h2>
 
-          <span className="max-w-[36ch] font-mono text-xs uppercase tracking-widest text-muted sm:pl-10">
-            from bhubaneswar, india · built for everywhere.
-          </span>
+          <div className="font-mono uppercase tracking-widest sm:pl-10">
+            <span className="block text-xs text-muted">
+              from bhubaneswar, india ·
+            </span>
+            <div className="mt-3.5 flex flex-wrap items-center gap-2.5 text-sm font-medium text-accent">
+              <span>Build</span>
+              <span aria-hidden="true">•</span>
+              <span>Run</span>
+              <span aria-hidden="true">•</span>
+              <span>Everywhere</span>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

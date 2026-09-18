@@ -24,7 +24,7 @@ export function BentoGrid() {
         {/* Bento Grid Layout */}
         <div className="flex flex-wrap items-stretch gap-4 sm:gap-5">
           {/* Tile 1: Profile Photo Card with Floating Pill Badge */}
-          <div className="relative min-h-[300px] sm:min-h-[340px] w-full max-w-[320px] flex-[1_1_280px] overflow-hidden rounded-[2.5rem] border border-border bg-surface mx-auto sm:mx-0">
+          <div className="relative min-h-[280px] sm:min-h-[340px] w-full sm:max-w-[320px] flex-[1_1_280px] overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-border bg-surface transition-all hover:border-accent/40">
             <Image
               src="/assets/git_profile.jpg"
               alt="Ashish Kumar Patra"
@@ -40,7 +40,7 @@ export function BentoGrid() {
           </div>
 
           {/* Tile 2: Backend Systems (Primary Focus) */}
-          <div className="group flex min-h-[300px] sm:min-h-[340px] flex-[1_1_320px] flex-col justify-between rounded-[2.5rem] border border-border bg-surface p-6 sm:p-10 transition-all hover:border-accent/40">
+          <div className="group flex min-h-[280px] sm:min-h-[340px] w-full flex-[1_1_320px] flex-col justify-between rounded-[2rem] sm:rounded-[2.5rem] border border-border bg-surface p-6 sm:p-10 transition-all hover:border-accent/40">
             <div>
               <span className="font-mono text-xs uppercase tracking-wider text-muted">Core Competency</span>
               <h3 className="mt-2 font-display text-2xl sm:text-4xl font-bold lowercase text-foreground">
@@ -60,7 +60,7 @@ export function BentoGrid() {
           </div>
 
           {/* Tile 3: Full-Stack & Intelligent APIs */}
-          <div className="group flex min-h-[300px] sm:min-h-[340px] flex-[1_1_320px] flex-col justify-between rounded-[2.5rem] border border-border bg-surface p-6 sm:p-10 transition-all hover:border-accent/40">
+          <div className="group flex min-h-[280px] sm:min-h-[340px] w-full flex-[1_1_320px] flex-col justify-between rounded-[2rem] sm:rounded-[2.5rem] border border-border bg-surface p-6 sm:p-10 transition-all hover:border-accent/40">
             <div>
               <span className="font-mono text-xs uppercase tracking-wider text-muted">Full Stack &amp; AI</span>
               <h3 className="mt-2 font-display text-2xl sm:text-4xl font-bold lowercase text-foreground">
@@ -80,15 +80,15 @@ export function BentoGrid() {
           </div>
 
           {/* Tile 4: Competitive Programming */}
-          <div className="group flex min-h-[300px] sm:min-h-[340px] flex-[1_1_320px] flex-col justify-between rounded-[2.5rem] border border-border bg-surface p-6 sm:p-10 transition-all hover:border-accent/40">
+          <div className="group flex min-h-[280px] sm:min-h-[340px] w-full flex-[1_1_320px] flex-col justify-between rounded-[2rem] sm:rounded-[2.5rem] border border-border bg-surface p-6 sm:p-10 transition-all hover:border-accent/40">
             <div>
               <span className="font-mono text-xs uppercase tracking-wider text-muted">Problem Solving</span>
               <h3 className="mt-2 font-display text-2xl sm:text-4xl font-bold lowercase text-foreground">
                 algorithms &amp;<br />contests
               </h3>
             </div>
-            <div>
-              <div className="my-2 font-mono text-xs sm:text-sm text-muted">
+            <div className="mt-4 sm:mt-6">
+              <div className="mb-2 font-mono text-xs sm:text-sm text-muted">
                 LeetCode Contest Rating (<span className="font-bold text-accent">1471</span>)
               </div>
               <p className="text-xs sm:text-sm text-muted leading-relaxed">
@@ -107,7 +107,7 @@ export function BentoGrid() {
           </div>
 
           {/* Tile 5: Open Source & Community Leadership */}
-          <div className="group flex min-h-[300px] sm:min-h-[340px] flex-[1_1_320px] flex-col justify-between rounded-[2.5rem] border border-border bg-surface p-6 sm:p-10 transition-all hover:border-accent/40">
+          <div className="group flex min-h-[280px] sm:min-h-[340px] w-full flex-[1_1_320px] flex-col justify-between rounded-[2rem] sm:rounded-[2.5rem] border border-border bg-surface p-6 sm:p-10 transition-all hover:border-accent/40">
             <div>
               <span className="font-mono text-xs uppercase tracking-wider text-muted">Impact</span>
               <h3 className="mt-2 font-display text-2xl sm:text-4xl font-bold lowercase text-foreground">
