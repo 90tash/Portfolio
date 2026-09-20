@@ -82,7 +82,7 @@ export function Footer() {
               download="Ashish_Kumar_Patra_Resume.pdf"
               className="hover:text-accent transition-colors"
             >
-              resume (pdf)
+              resume
             </a>
           </nav>
 
