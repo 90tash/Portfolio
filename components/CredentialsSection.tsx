@@ -121,7 +121,7 @@ export function CredentialsSection() {
   return (
     <section id="credentials" className="px-5 py-16 sm:px-10 sm:py-20 sm:pb-24 border-t border-border">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col items-start lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div>
             <span className="font-mono text-xs uppercase tracking-widest text-muted sm:pl-10">
               academic &amp; verified background
@@ -134,11 +134,11 @@ export function CredentialsSection() {
             </h2>
           </div>
 
-          {/* Segmented Tab Controls - Fully responsive with sliding pill */}
-          <div className="glass inline-flex self-start shrink-0 items-center gap-1 rounded-full p-1.5 sm:p-2 overflow-x-auto no-scrollbar max-w-full w-fit">
+          {/* Segmented Tab Controls - Full width on mobile with auto-adjusting segments */}
+          <div className="glass flex w-full sm:w-auto sm:inline-flex items-center justify-between sm:justify-start gap-1 rounded-full p-1.5 sm:p-2 border border-border">
             <button
               onClick={() => handleTabChange("education")}
-              className={`relative flex shrink-0 items-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-1.5 sm:px-4 sm:py-2 text-[0.72rem] sm:text-xs font-mono transition-colors ${
+              className={`relative flex flex-1 sm:flex-initial items-center justify-center gap-1.5 sm:gap-2 rounded-full px-2 sm:px-4 py-1.5 sm:py-2 text-[0.7rem] sm:text-xs font-mono transition-colors min-w-0 ${
                 activeTab === "education"
                   ? "text-white font-semibold"
                   : "text-muted hover:text-foreground"
@@ -151,13 +151,13 @@ export function CredentialsSection() {
                   transition={{ type: "spring", stiffness: 500, damping: 35 }}
                 />
               )}
-              <GraduationCap className="relative z-10 h-3.5 w-3.5" />
-              <span className="relative z-10 whitespace-nowrap">education</span>
+              <GraduationCap className="relative z-10 h-3.5 w-3.5 shrink-0" />
+              <span className="relative z-10 whitespace-nowrap truncate">education</span>
             </button>
 
             <button
               onClick={() => handleTabChange("certs")}
-              className={`relative flex shrink-0 items-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-1.5 sm:px-4 sm:py-2 text-[0.72rem] sm:text-xs font-mono transition-colors ${
+              className={`relative flex flex-1 sm:flex-initial items-center justify-center gap-1.5 sm:gap-2 rounded-full px-2 sm:px-4 py-1.5 sm:py-2 text-[0.7rem] sm:text-xs font-mono transition-colors min-w-0 ${
                 activeTab === "certs"
                   ? "text-white font-semibold"
                   : "text-muted hover:text-foreground"
@@ -170,13 +170,16 @@ export function CredentialsSection() {
                   transition={{ type: "spring", stiffness: 500, damping: 35 }}
                 />
               )}
-              <Award className="relative z-10 h-3.5 w-3.5" />
-              <span className="relative z-10 whitespace-nowrap">certifications</span>
+              <Award className="relative z-10 h-3.5 w-3.5 shrink-0" />
+              <span className="relative z-10 whitespace-nowrap">
+                <span className="hidden min-[380px]:inline">certifications</span>
+                <span className="min-[380px]:hidden">certs</span>
+              </span>
             </button>
 
             <button
               onClick={() => handleTabChange("profiles")}
-              className={`relative flex shrink-0 items-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-1.5 sm:px-4 sm:py-2 text-[0.72rem] sm:text-xs font-mono transition-colors ${
+              className={`relative flex flex-1 sm:flex-initial items-center justify-center gap-1.5 sm:gap-2 rounded-full px-2 sm:px-4 py-1.5 sm:py-2 text-[0.7rem] sm:text-xs font-mono transition-colors min-w-0 ${
                 activeTab === "profiles"
                   ? "text-white font-semibold"
                   : "text-muted hover:text-foreground"
@@ -189,8 +192,11 @@ export function CredentialsSection() {
                   transition={{ type: "spring", stiffness: 500, damping: 35 }}
                 />
               )}
-              <Code2 className="relative z-10 h-3.5 w-3.5" />
-              <span className="relative z-10 whitespace-nowrap">cp footprints</span>
+              <Code2 className="relative z-10 h-3.5 w-3.5 shrink-0" />
+              <span className="relative z-10 whitespace-nowrap">
+                <span className="hidden min-[380px]:inline">cp footprints</span>
+                <span className="min-[380px]:hidden">footprints</span>
+              </span>
             </button>
           </div>
         </div>
