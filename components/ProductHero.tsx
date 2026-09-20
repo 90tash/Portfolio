@@ -112,11 +112,11 @@ export function ProductHero() {
             href="https://epicstreams.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-accent group flex items-center gap-2 rounded-full px-6 py-3 text-xs sm:text-sm font-semibold text-white transition-transform hover:scale-105"
+            className="glass-accent group flex items-center gap-2 rounded-full px-6 py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 ease-out hover:scale-105 active:scale-[0.98] transform-gpu will-change-transform"
           >
-            <ExternalLink className="h-4 w-4" />
+            <ExternalLink className="h-4 w-4 shrink-0" />
             <span>explore epicstream</span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 ease-out group-hover:translate-x-1" />
           </a>
           <a
             href="https://github.com/90tash"
@@ -258,11 +258,11 @@ export function ProductHero() {
             href="https://github.com/90tash/Habitra"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-accent group flex items-center gap-2 rounded-full px-6 py-3 text-xs sm:text-sm font-semibold text-white transition-transform hover:scale-105"
+            className="glass-accent group flex items-center gap-2 rounded-full px-6 py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 ease-out hover:scale-105 active:scale-[0.98] transform-gpu will-change-transform"
           >
-            <Github className="h-4 w-4" />
+            <Github className="h-4 w-4 shrink-0" />
             <span>explore habitra</span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 ease-out group-hover:translate-x-1" />
           </a>
           <a
             href="https://github.com/90tash/Habitra"

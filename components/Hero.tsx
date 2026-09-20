@@ -11,10 +11,6 @@ export function Hero() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 sm:gap-12">
         {/* Left: Giant Wordmark + Bio */}
         <div className="min-w-0 flex-1">
-          <div className="mb-3 flex items-center gap-2 text-[0.7rem] sm:text-xs font-mono tracking-wider text-accent uppercase">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            <span>backend &amp; distributed systems engineer</span>
-          </div>
 
           {/* Giant Wordmark Clamp - Mobile optimized */}
           <h1
@@ -63,10 +59,10 @@ export function Hero() {
           >
             <a
               href="#projects"
-              className="glass-accent flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold text-white transition-transform hover:scale-105"
+              className="glass-accent flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold text-white transition-all duration-300 ease-out hover:scale-105 active:scale-[0.98] transform-gpu will-change-transform"
             >
               <span>explore builds</span>
-              <ArrowDown className="h-3.5 w-3.5" />
+              <ArrowDown className="h-3.5 w-3.5 shrink-0" />
             </a>
 
             <a

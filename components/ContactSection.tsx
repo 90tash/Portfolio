@@ -181,10 +181,10 @@ export function ContactSection() {
 
               <button
                 type="submit"
-                className="glass-accent mt-3 sm:mt-4 flex items-center justify-center gap-2 rounded-full px-8 py-3 text-xs font-mono uppercase tracking-wider font-semibold text-white transition-transform hover:scale-105 w-full sm:w-auto self-start"
+                className="glass-accent mt-3 sm:mt-4 flex items-center justify-center gap-2 rounded-full px-8 py-3 text-xs font-mono uppercase tracking-wider font-semibold text-white transition-all duration-300 ease-out hover:scale-105 active:scale-[0.98] transform-gpu will-change-transform w-full sm:w-auto self-start"
               >
                 <span>send message</span>
-                <Send className="h-3.5 w-3.5" />
+                <Send className="h-3.5 w-3.5 shrink-0" />
               </button>
             </form>
           )}

@@ -121,7 +121,7 @@ export function CredentialsSection() {
   return (
     <section id="credentials" className="px-5 py-16 sm:px-10 sm:py-20 sm:pb-24 border-t border-border">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-12">
+        <div className="flex flex-col items-start lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div>
             <span className="font-mono text-xs uppercase tracking-widest text-muted sm:pl-10">
               academic &amp; verified background
@@ -135,7 +135,7 @@ export function CredentialsSection() {
           </div>
 
           {/* Segmented Tab Controls - Fully responsive with sliding pill */}
-          <div className="glass inline-flex shrink-0 items-center gap-1 rounded-full p-1.5 sm:p-2 overflow-x-auto no-scrollbar max-w-full">
+          <div className="glass inline-flex self-start shrink-0 items-center gap-1 rounded-full p-1.5 sm:p-2 overflow-x-auto no-scrollbar max-w-full w-fit">
             <button
               onClick={() => handleTabChange("education")}
               className={`relative flex shrink-0 items-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-1.5 sm:px-4 sm:py-2 text-[0.72rem] sm:text-xs font-mono transition-colors ${
